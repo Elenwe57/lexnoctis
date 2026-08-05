@@ -1358,25 +1358,25 @@ span.topic-author {font-size: 13px;}
     border: 1px solid #2f2f2f;
 }
 .P_firstimg img {
-    height: 120px;
-    width: 220px;
+    height: 118px;
+    width: 218px;
 }
 .P_scndimg {
     height: 120px;
     width: 220px;
     border: 1px solid #2f2f2f;
-    margin-left: 280px;
+    margin-left: 360px;
 }
 .P_scndimg img {
-    height: 120px;
-    width: 220px;
+    height: 118px;
+    width: 219px;
 }
 .P_vracsec {
     float: left;
     border: 1px solid #2f2f2f;
-    height: 100px;
+    height: 120px;
     padding: 10px;
-    width: 50%;
+    width: 60%;
     background-color: var(--fow-bg);
     font-size: 9.5px;
     overflow: auto;
