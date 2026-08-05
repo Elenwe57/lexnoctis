@@ -1,0 +1,1344 @@
+/***BOTTINS***/
+.nx-directory{width:100%;box-sizing:border-box;background:var(--contrastLight);border:1px solid var(--neutral);font-family:Arial,sans-serif;color:var(--textColor);overflow:hidden}
+.nx-directory-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding:24px 26px;background:var(--neutralDark);border-bottom:3px solid var(--contrast)}
+.nx-directory-eyebrow{display:block;margin-bottom:5px;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--neutral)}
+.nx-directory-head h2{margin:0;font-size:24px;font-weight:400;letter-spacing:1px;text-transform:uppercase;color:var(--contrastLight)}
+.nx-directory-search{display:flex;align-items:center;gap:8px;width:260px;padding:9px 12px;border:1px solid var(--neutral);background:var(--contrast)}
+.nx-directory-search span{font-size:18px;color:var(--neutral)}
+.nx-directory-search input{width:100%;padding:0;border:0;outline:0;background:transparent;font-size:11px;color:var(--textColor)}
+.nx-directory-search input::placeholder{color:var(--neutral)}
+.nx-directory-scroll{width:100%;overflow-x:auto}
+.nx-directory-table{width:100%;min-width:800px;border-collapse:collapse;table-layout:auto}
+.nx-directory-table th{position:relative;padding:14px 28px 14px 14px;background:var(--accentClr);border-right:1px solid var(--contrastLight);border-bottom:1px solid var(--neutralDark);font-size:9px;
+  letter-spacing:1.5px;text-align:left;text-transform:uppercase;color:var(--contrast);cursor:pointer;user-select:none;white-space:nowrap}
+.nx-directory-table th:last-child{border-right:0}
+.nx-directory-table th::after{content:"↕";position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:11px;opacity:.45}
+.nx-directory-table th[data-direction="asc"]::after{content:"↑";opacity:1}
+.nx-directory-table th[data-direction="desc"]::after{content:"↓";opacity:1}
+.nx-directory-table td{padding:13px 14px;border-right:1px solid var(--contrastLight);border-bottom:1px solid var(--neutral);background:var(--neutralDark);font-size:11px;vertical-align:middle}
+.nx-directory-table td:last-child{border-right:0}
+.nx-directory-table tbody tr:nth-child(even) td{background:var(--neutral)}
+.nx-directory-table tbody tr:hover td{background:var(--neutralDarker);transition:.2s}
+.nx-directory-table tbody tr:hover .nx-directory-link{border-color:var(--neutralDark)}
+.nx-status,.nx-secondary{display:inline-flex;align-items:center;justify-content:center;min-width:58px;padding:5px 8px;border:1px solid currentColor;font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.nx-status-pj{color:red}
+.nx-status-pnj{color:orange}
+.nx-status-predef{color:green}
+.nx-alpha{color:var(--g-alphas)}
+.nx-beta{color:var(--g-betas)}
+.nx-omega{color:var(--g-omegas)}
+.nx-gender{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.nx-directory-link{display:inline-flex;align-items:center;justify-content:center;padding:6px 11px;border:1px solid var(--neutral);font-size:8px;font-weight:700;letter-spacing:1px;text-decoration:none;text-transform:uppercase;color:var(--neutralDark);transition:.2s}
+.nx-directory-link:hover{background:var(--neutralDark);color:var(--contrastLight)}
+.nx-directory-empty{display:none;padding:30px;background:var(--contrastLighter);font-size:11px;letter-spacing:1px;text-align:center;text-transform:uppercase;color:var(--neutral)}
+@media(max-width:700px){
+.nx-directory-head{align-items:stretch;flex-direction:column}
+.nx-directory-search{width:auto}
+}
+
+/*** ------------------------------- ***/
+/*** TOUTES LES PAGES --------------- ***/
+
+/* FOND DU FORUM ---*/
+body {
+  background: var(--neutralDark);
+  font-family: var(--font);
+  font-size: var(--normal-size);
+  color: var(--textColor);
+  margin: 0 !important;
+}
+
+html, body {background-color: var(--neutralDark);}
+
+/* SCROLLBAR --- */
+/* Scrollbar entière */
+::-webkit-scrollbar {}
+
+/* Rail */
+::-webkit-scrollbar-track {}
+
+/* Poignée */
+::-webkit-scrollbar-thumb {}
+
+/* STRUCTURE PRINCIPALE ---*/
+.main_forum {
+  width: 940px;
+  /*largeur forum*/
+  margin: 20px auto;
+  padding: 20px;
+  background: var(--neutral);
+}
+
+/* BANNIERE ---*/
+/* Mettre la bannière en fond permet de la changer selon le thème clair ou sombre */
+#header {
+  background-image: var(--header);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  width: 900px;
+  height: 330px;
+  display: block;
+}
+
+/* Conteneur de toutes les sous-sections
+ * comme les encadrés d'options, de rappel, etc... */
+.panel {
+  background: var(--neutral);
+  border: var(--border);
+  padding: 10px;
+  margin: 25px 0;
+}
+
+.sidebar {
+  position: fixed;
+  background-color: var(--neutral);
+  inset: 0;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px 10px;
+  z-index: 999;
+}
+
+/* Conteneur de switcheroo */
+.sidebar_top {
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
+
+/* Conteneur de l'ascenseur
+ * Sert essentiellement à définir où le placer dans la page */
+.sidebar_bottom {
+  width: 45px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Lien de renvoi haut/bas */
+.sidebar_bottom>a {
+  padding: 5px 8px;
+  background: var(--neutralDark);
+  text-align: center;
+}
+
+/* BOUTON CHANGEMENT DE THEME ---*/
+@media (prefers-color-scheme: dark) {
+  .color-scheme-toggle .dark {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .color-scheme-toggle .light {
+    display: none;
+  }
+}
+
+.color-scheme-toggle,
+[data-color-scheme="light"] .color-scheme-toggle .dark,
+[data-color-scheme="dark"] .color-scheme-toggle .light {
+  display: block;
+  width: 100%;
+}
+
+[data-color-scheme="dark"] .color-scheme-toggle .dark,
+[data-color-scheme="light"] .color-scheme-toggle .light {
+  display: none;
+}
+
+.color-scheme-toggle {
+  background-color: var(--neutralDark);
+  padding: 5px 8px;
+  font-size: 36px;
+  text-align: center;
+  color: var(--textColor);
+}
+
+.color-scheme-toggle:hover {
+  color: var(--accentClr);
+}
+
+
+
+/****** ------------------------------------------------------------------------------
+ ****** GÉNÉRALITÉS ------------------------------------------------------------------ 
+ ****** Sélecteurs généraux s'appliquant à plusieurs reprises sur tout le forum ******/
+
+/*** ----------------------------------- ***/
+/*** LIENS ET TEXTE -------------------- ***/
+
+/* LIENS DU FORUM --- */
+a {
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--textColorAccent);
+}
+
+/*liens au survol*/
+a:hover {
+  color: var(--accentClr);
+}
+
+/* Emoji mis par défaut de FA
+ * Les réduire les rend moins horribles à voir */
+.emojione {
+  width: 19px !important;
+}
+
+/* TITRES DES PAGES --- ***/
+
+/* Utilisé pour des titres de pages */
+h1,
+h1.page-title {
+  color: var(--contrastLight);
+  margin: 10px 0 20px;
+  font-size: var(--title-size);
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Utilisé pour des titres de sujets, blogs... */
+h2,
+.h2 {
+  margin: 0;
+  font-size: var(--large-size);
+  font-weight: 700;
+}
+
+/* Utilisé pour des titres de sous-sections, petit encadré, ...*/
+h3, .h3 {
+    color: var(--textColorAccent);
+    font-family: Cinzel;
+    border: none;
+    padding-bottom: 0;
+    padding-top: 20px;
+    font-style: italic;
+    margin: 0;
+    font-size: var(--medium-size);
+    font-weight: 700;
+}
+
+/*** --------------------------------------- ***/
+/*** BOUTONS D'INTERACTION ET BARRE DE TEXTE ***/
+
+/* CHAMPS DE TEXTE ---*/
+input:is([type="text"], [type="password"], .inputbox),
+textarea {
+  border: none;
+  background: var(--neutralDark);
+  font-size: var(--normal-size);
+  color: var(--contrastLight) !important;
+  padding: 8px 10px;
+}
+
+/* Au focus */
+:focus:is(input:is([type="text"], [type="password"], .inputbox), textarea) {
+  outline: none;
+  border: 1px solid var(--accentClr);
+}
+
+/* BOUTONS D'INTERACTION --- *
+ * Envoyer, prévisualiser, sauvegarder, aller,... */
+input:is([type="submit"], [type="button"], [type="hidden"], [type="reset"]),
+.button,
+button {
+  font-size: var(--normal-size);
+  padding: 10px 15px !important;
+  background: var(--neutralDarker);
+  color: var(--contrastLight);
+  font-weight: 600;
+  border: none;
+}
+
+/* Au survol */
+:hover:is(input:is([type="submit"], [type="button"], [type="hidden"], [type="reset"]), .button) {
+  color: var(--accentClr);
+}
+
+/* Boutons désactivés */
+:disabled:is(input:is([type="submit"], [type="button"], [type="hidden"], [type="reset"]), .button) {
+  opacity: .5;
+  filter: saturate(1);
+  cursor: not-allowed;
+}
+
+:disabled:hover:is(input:is([type="submit"], [type="button"], [type="hidden"], [type="reset"]), .button) {
+  color: inherit;
+}
+
+.submit-buttons {
+  text-align: center;
+}
+
+.quickmod {
+  margin-bottom: 20px;
+}
+
+/* MENUS DEROULANTS --- */
+select {
+  background: transparent;
+  border: var(--border);
+  font-size: var(--normal-size);
+  padding: 8px 10px;
+  color: var(--textColor);
+}
+
+select:focus-visible {
+  outline: 1px solid var(--accentClr);
+}
+
+
+/*** ------------------------------- ***/
+/*** EDITEUR DE TEXTE -------------- ***/
+/* Editeur de texte */
+.sceditor-container {
+  border: var(--border) !important;
+  background-color: var(--neutral) !important;
+}
+
+/* Barre d'outils de l'éditeur de texte*/
+div.sceditor-toolbar {
+  background: var(--neutral) !important;
+  border-bottom: var(--border) !important;
+}
+
+/* Conteneur des groupes d'outils */
+div.sceditor-group {
+  background: var(--neutralDark) !important;
+  border-bottom: var(--border) !important;
+}
+
+/* Bouton d'un outil */
+a.sceditor-button {
+  height: 26px !important;
+  /*ne pas retirer*/
+  width: 26px !important;
+  /*ne pas retirer*/
+}
+
+/* Bouton d'un outil au survol ou actif*/
+.sceditor-button.active,
+.sceditor-button:active,
+.sceditor-button:hover,
+.sceditor-button.hover {
+  background: var(--neutral) !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: 1px solid var(--neutralDarker);
+}
+
+/* Conteneur de la zone de texte */
+.sceditor-container iframe,
+.sceditor-container textarea {
+  background-color: var(--neutral) !important;
+  /*ne pas supprimer*/
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 5px !important;
+  /*ne pas supprimer*/
+  min-height: 250px !important;
+}
+
+.sceditor-container textarea:focus {
+  outline: none
+}
+
+/*Boîte Smiley*/
+html#sceditor_smilies,
+body#sce_smilies_body {
+  background: transparent !important;
+}
+
+
+
+/*** ------------------------------- ***/
+/*** PAGINATIONS -------------------- ***/
+
+.pagination {}
+
+/*lien unique vers les pages numérotées*/
+.pagination span a {
+  font-size: var(--little-size);
+}
+
+/*survol des liens uniques des pages*/
+.pagination span a:hover {
+  font-weight: 600;
+}
+
+/*lien actif : page sur laquelle vous vous trouvez */
+.pagination span strong {
+  background-color: var(--neutralDark);
+  padding: 1px 4px;
+}
+
+/*suppression de l'image-lien "aller à la page suivante" */
+.page-topic span a:last-child,
+.pag-img {
+  display: none;
+}
+
+/*** ------------------------------- ***/
+/*** ELEMENTS ESTHETIQUES ---------- ***/
+
+/* Contenur général qui sert généralement de fond et/ou de contour*/
+.container {
+  background: var(--neutralDark);
+  padding: 10px;
+}
+
+/* Barre de séparation */
+.separator {
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid var(--neutralDark);
+  clear: both;
+  height: 1px;
+  width: 100%;
+}
+
+hr {
+  border: none;
+  border-top: var(--border);
+}
+
+/* Titre d'un toggle */
+summary {
+  cursor: pointer;
+}
+
+/* Conteneur moins large (les historiques des messages essentiellement) */
+.wrapped {
+  width: 80%;
+  margin: 10px auto;
+  clear: both;
+}
+
+/* Image/avatar réduit */
+.mini_img img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  object-position: center;
+  margin-right: 10px;
+  background: var(--neutralDark);
+}
+
+/* Permet d'aligner un élément à droite ou à gauche */
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.clear {
+  clear: both;
+}
+
+/* Barre de gestion 
+ * Contient des boutons ou des liens spéciaux */
+.links_bar {
+  padding: 10px;
+  margin: 25px 0;
+  clear: both;
+}
+
+/* supprime si vide */
+.links_bar:empty {
+  display: none;
+}
+
+/* Lien spécial mis en avant */
+.specials_links a,
+a.specials_links {
+  background: var(--neutralDark);
+  padding: 2px 6px;
+}
+
+/* Suppression des liens vides */
+.specials_links a:empty,
+a.specials_links:empty {
+  display: none;
+}
+
+
+/****** ------------------------------------------------------------------------------ 
+ ****** ENTETE DU FORUM --------------------------------------------------------------
+ ****** Tous les éléments qui s'affichent en tête de toutes les pages ---------------- ******/
+
+/* Notiffi CSS */
+/* Cache la toolbar défaut */
+#fa_toolbar {
+  display: none
+}
+
+/* Bouton de notification */
+#notiffi_button {
+  cursor: pointer;
+  background: var(--neutral);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 10px;
+  position: fixed;
+  z-index: 99;
+  top: 10px;
+  right: 10px;
+  height: 35px;
+}
+
+/* Conteneur du nombre de notification non lues REMPLI */
+.unread_count {
+  position: relative;
+  background: var(--neutralDarker);
+  width: 25px;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  font-size: 12px;
+  scale: 1;
+  opacity: 1;
+  aspect-ratio: 1;
+  transition: scale ease-out .2s;
+}
+
+/* Conteneur du nombre de notification non lues VIDE */
+.unread_count:empty {
+  position: absolute;
+  scale: 0;
+  opacity: 0;
+  transition: all ease-out .2s;
+}
+
+
+
+/* Menu des notifications FERMÉ */
+#notiffi_panel {
+  --menuSize: 500px;
+  /* taille du Menu */
+  width: var(--menuSize);
+  position: fixed;
+  z-index: 98;
+  top: 0;
+  height: 100%;
+  right: calc(var(--menuSize) * -1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: start;
+  background: var(--neutral);
+  border-left: 1px solid var(--neutralDark);
+  padding: 15px;
+  padding-top: 50px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all ease .7s;
+}
+
+/* Menu des notifications OUVERT */
+#notiffi_panel.open {
+  right: 0;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Conteneur des notifications */
+.all_notifications {
+  width: 100%;
+  overflow: auto;
+  max-height: 100%;
+  background: var(--neutralDark);
+  padding: 10px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  /* Désactive la barre de défilement dans le contenenur */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Conteneur des notifications VIDE */
+.no_notification {
+  text-align: center;
+  font-style: italic;
+}
+
+/* Conteneur du footer du menu
+  (voir toutes les notifications, marquer comme lu, tout supprimer) */
+.notiffi_manage {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Conteneur des bouton d'action des notifications */
+.notiffi_actions {
+  display: grid;
+  justify-items: end;
+  gap: 5px;
+
+  /* Bouton d'action */
+  button {
+    padding: 2px 10px;
+    background: var(--neutralDark);
+
+    &:hover {
+      color: var(--accentClr)
+    }
+  }
+}
+
+/* Apparence d'une notification */
+.notification {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 5px;
+  padding: 10px;
+  border: 1px solid transparent;
+  transition: border .2s;
+  animation: notiffiFadeIn 0.3s ease-in-out;
+
+  /* Notification au survol */
+  &:hover {
+    border-color: var(--neutralDarker);
+  }
+}
+
+/* Animation d'apparition des notifications */
+@keyframes notiffiFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Apparence d'une notification NON LUE */
+.notification.unread {
+  background-color: var(--neutral);
+}
+
+/* Conteneur des détails de la notification (avatar, icone) */
+.notif_details {
+  position: relative;
+  align-self: start;
+}
+
+/* Conteneur de l'avatar */
+.notif_avatar {
+  background: var(--neutral);
+  height: 35px;
+  aspect-ratio: 1;
+
+  /* Image de l'avatar */
+  & img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+/* Icone du type de la notification */
+.notif_icon {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  background: var(--neutral);
+  width: 18px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+}
+
+/* Icone lorsque la notification est non lue */
+.notification.unread .notif_icon {
+  color: var(--neutral);
+  background: var(--accentClr);
+}
+
+/* Conteneur du texte et la date de la notification */
+.notif_content {
+  width: 100%;
+}
+
+/* Date de la notification */
+.notif_time {
+  font-size: var(--little-size);
+  opacity: .8;
+  margin-top: 5px;
+}
+
+/* Bouton de suppression de la notification */
+.notif_close {
+  background: transparent;
+  align-self: start;
+  font-size: 18px;
+  line-height: 0;
+  opacity: 0;
+  aspect-ratio: 1;
+  padding: 2px;
+  transition: all .3s;
+}
+
+/* Affiche le bouton de suppression au survol de la notification */
+.notification:hover .notif_close {
+  opacity: 1
+}
+
+/* Alerte d'une notification */
+.notification.alert {
+  position: fixed;
+  width: 400px;
+  align-items: center;
+  z-index: 99;
+  bottom: 10px;
+  right: 10px;
+  background: var(--neutralDarker);
+  transform: translateY(100%);
+  opacity: 0;
+  filter: blur(5px);
+  transition: all .5s ease-in-out;
+}
+
+.notification.alert.up {
+  transform: translateY(0%);
+  opacity: 1;
+  filter: blur(0);
+  transition: all .5s ease-in-out;
+}
+
+.alert_close {
+  background: var(--neutral);
+  font-size: 18px;
+  line-height: 0;
+  aspect-ratio: 1;
+  padding: 2px;
+}
+
+/*** ------------------------------- ***/
+/*** SWITCHEROO - Par Monomer ------ ***/
+/*** Gestionnaire de multicompte --- ***/
+
+:root {
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.43, 0.09, 0.38, 2.56);
+}
+
+/* BARRE SWITCHEROO --- */
+/* BARRE --- */
+.switcheroo {
+  color: var(--textColor);
+}
+
+/* Positionnement des ronds */
+.switcheroo__squircles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: 15px;
+}
+
+/* AFFICHAGE DES COMPTES ---*/
+
+/* Rond */
+.switcheroo__squircle {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background-color: var(--neutralDark);
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  outline: 5px solid transparent;
+  transition: border-radius 128ms var(--ease);
+}
+
+/* Rond au survol */
+.switcheroo__squircle:hover {
+  outline-color: var(--neutralDarker);
+}
+
+.switcheroo__squircle:hover img {
+}
+
+/* Conteneur de l'avatar */
+.switcheroo__avatar {
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+
+/* Image de l'avatar */
+.switcheroo__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: border-radius 128ms var(--ease);
+  position: relative;
+}
+
+/* Avatar du compte connecté */
+.switcheroo__squircle.active,
+.switcheroo__squircle.active img {
+  outline-color: var(--neutralDark);
+  cursor: default;
+}
+
+/* AJOUTER UN COMPTE ---*/
+/* button : ajouter un compte */
+.switcheroo__squircle--button {
+  transition: border-radius 128ms var(--ease);
+  color: var(--contrastLight);
+}
+
+/* icon plus */
+.switcheroo__squircle--button i {
+  font-size: 19px;
+}
+
+.switcheroo__squircle--button:hover {
+  color: var(--accentClr);
+}
+
+/* Bouton de suppression */
+.switcheroo__delete {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: -7px;
+  right: -7px;
+  border-radius: 50%;
+  background-color: var(--accentClr);
+  transform: scale(0);
+  opacity: 1;
+  transition: transform 128ms var(--ease), opacity 64ms var(--ease);
+  cursor: pointer;
+  color: var(--neutral);
+  line-height: 0;
+}
+
+.switcheroo__squircle:hover .switcheroo__delete {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* TOOLTIP - INFOBULLE DU PSEUDO ---*/
+
+/* Conteneur du pseudo */
+.switcheroo__popper {
+  background-color: var(--neutralDarker);
+  padding: 0.3rem 1rem;
+  position: absolute;
+  width: -webkit-max-content;
+  width: max-content;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 64ms var(--ease), transform 128ms var(--ease-bounce);
+  pointer-events: none;
+  color: var(--textColor);
+  left: 155%;
+  top: 50%;
+  transform-origin: left;
+  transform: translateY(-50%) scale(0.98);
+}
+
+/* Flèche tooltip */
+.switcheroo__popper:before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: var(--neutralDarker);
+  z-index: -1;
+  left: -3px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.switcheroo__squircle:hover .switcheroo__popper {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+/* LOGO --- retirez display:none pour retrouver le logo */
+.switcheroo__logo,
+.switcheroo__divider {
+  display: none;
+}
+
+/* MODAL : FENETRE DE CONNEXION --- */
+
+/* Fond de l'affichage de connexion */
+.monomer-overlay {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.2s opacity ease;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Boîte de connexion */
+.monomer-modal {
+  position: fixed;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  width: 94%;
+  padding: 30px;
+  transition: 0.2s opacity ease;
+  transform: translate(-50%, -50%);
+  background: var(--neutral);
+  padding: 50px;
+  box-shadow: var(--shadowBox);
+}
+
+/* Champs à remplir */
+.switcheroo__form-row {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+/* Nom du champ */
+.switcheroo__form-label {
+  margin-bottom: 8px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Zone de texte */
+.switcheroo__form-input {
+  padding: 6px !important;
+  width: 100%;
+  background-color: var(--neutral);
+  color: var(--contrastLight);
+  cursor: text;
+}
+
+/* Bouton de connexion */
+.switcheroo__form-button {
+  padding: 4px 10px 5px;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  align-self: center;
+  background-color: var(--accentClr);
+  cursor: pointer;
+  color: var(--neutral);
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.switcheroo__form-button:hover {
+  background: var(--contrastLight);
+}
+
+.monomer-modal.monomer-open,
+.monomer-overlay.monomer-open {
+  opacity: 1;
+}
+
+/* Fermer la boîte de connexion */
+.monomer-close {
+  font-size: 16px;
+  line-height: 12px;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  color: var(--textColor);
+  border: 0;
+  outline: none;
+  background: var(--contrastLighter);
+  padding: 0;
+  padding-left: 1px;
+}
+
+.monomer-close:hover {
+  background: var(--contrastLight);
+}
+
+/*** ------------------------------- ***/
+/*** BARRE DE NAVIGATION ----------- ***/
+
+/* Conteneur de la barre de nav */
+.navbar {
+  background: var(--neutralDark);
+  margin-top: 10px;
+  padding: 10px;
+
+  display: flex;
+  /* permet de mettre les liens sur une ligne */
+  align-items: center;
+  /*centre verticalement*/
+  justify-content: center;
+  /*centre horizontalement*/
+}
+
+.navbar li{margin:0}
+.navbar a:hover {color: var(--accentClr);}
+
+/* Suppression des liens peu utilisés*/
+.navbar a[href^="/faq"],
+/*faq*/
+.navbar a[href^="/calendar"],
+/*calendrier*/
+.navbar a[href^="/groups"],
+/*groupes*/
+.navbar a[href^="/images"]
+
+/*Dernières images*/
+  {
+  display: none;
+}
+
+/* liens de navigation */
+a.mainmenu {
+  padding: 5px;
+}
+
+/* Lien navigation au survol*/
+a.mainmenu:hover {
+  background: var(--neutral);
+}
+
+/* Image des liens */
+a.mainmenu img {
+  display: none;
+}
+
+/*** ------------------------------- ***/
+/*** ANNONCES DEFILANTES ----------- ***/
+
+/* Barre défilante */
+.module {
+  border: var(--border);
+  margin: 10px 0;
+  padding: 4px 8px;
+}
+
+/****** ------------------------------------------------------------------------------
+ ****** PAGE PRINCIPALE, INDEX ------------------------------------------------------- ******/
+
+/* PAGE D'ACCUEIL ---*/
+.introduction {}
+
+/*** ------------------------------- ***/
+/*** CATEGORIES -------------------- ***/
+
+.category {
+  background: var(--neutralDark);
+  padding: 10px;
+  margin-bottom: 25px;
+}
+
+/* Titre d'une catégorie */
+
+.cate_title h2 {
+display: block;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 27px;
+    font-weight: 500;
+    padding: 19px 0 25px;
+    height: 80px;
+    background: url(https://i.servimg.com/u/f81/17/65/68/70/fond_d10.png);
+    font-family: Cinzel;
+    color: var(--textColorAccent);
+    letter-spacing: 13px;
+}
+
+/* conteneur d'un forum*/
+.forum {
+  margin-bottom: 10px;
+  background: var(--neutralDarker);
+  padding: 10px;
+}
+
+.forum:last-child {
+  margin-bottom: 0;
+}
+
+/* titre d'un forum */
+a.forumtitle {color: var(--textColorAccent) !important;display: block;font-variant-caps: small-caps;border-bottom: 1px solid var(--neutral);font-family: 'Cinzel';font-weight: 600;letter-spacing: 3px;
+  margin-top: -6px;text-decoration: none;}
+a.forumtitle:hover {color: var(--accentClr) !important;text-decoration: none;}
+.forum_content {display: flex;gap: 10px;align-items: center;margin-top: 10px;}
+
+/*image statut du forum */
+.forum-img {width: 70px;height: 70px;}
+
+/*description du forum*/
+.forum_desc {flex: 1;max-height: 65px;overflow:hidden;align-self: center;font-size: 12px;padding: 2px;}
+.forum_desc:hover {overflow: auto;}
+
+.firstline {border-bottom: 1px solid var(--accentClr);text-align: center;margin: -5px 0 5px 0;font-variant-caps: all-small-caps;font-family: 'Cinzel';font-size: 15px;letter-spacing: 6px;
+  color: var(--accentClrDark);opacity: 0.5;}
+.forum_avatar {width: 50px;height: 80px;}
+.forum_avatar img {background: var(--neutralDark);width: 50px;height: 80px;object-fit: cover;object-position: center; border:1px solid var(--neutralDark);outline: 1px solid var(--neutralDark);
+    outline-offset: 1px;}
+.forum_lastpost {width: 180px;text-align: center;}
+.forum_details {border-top: 1px solid var(--neutral);padding-top: 10px;margin-top: 10px;display: flex;justify-content: space-between;}
+#subforum {font-size: 0;}
+#subforum a {font-size: var(--little-size);margin-right: 10px;}
+.forum_stats {font-weight: 600;float: right;font-size: var(--little-size);}
+
+/*** ------------------------------- ***/
+/*** QUI EST EN LIGNE -------------- ***/
+
+/********QEEL********/
+.qeel2024 {display: flex;background: var(--second-color);padding:10px;border-radius:10px}
+.qeel2024_bienvanniv { margin-right: 20px;width:310px}
+.qeel2024_bienvanniv_bienv { text-align: center; font-family: Cinzel; font-size: 18px;margin: 35px 0px 25px 70px;}
+#ib-last-user img { width: 65px; position: absolute; margin-top: -100px; margin-left: -155px; border: 6px solid var(--neutralDark);}
+.qeel2024_bienvanniv_anniv { text-align: justify; height: 75px; font-size: 11px; overflow: auto; margin: 9px 5px 5px 5px; background: var(--neutralDark); padding: 5px; line-height: 12px;border: 1px solid #c2a87b38;}
+.qeel2024_onlinecorec { width: 410px; text-align: justify; margin-right: 20px; font-size: 11px;}
+#current_members { text-align: center; margin-bottom: 10px;}
+#list_current_members { text-align: justify; height: 50px; overflow: auto; margin: 5px; background: var(--neutralDark); padding: 5px;border: 1px solid #c2a87b38;}
+div#current_members p2 { font-size: 10px;}
+list_current_members::before { content: "Sont actuellement parmi nous : ";}
+div#lconnect { text-align: justify; height: 100px; overflow: auto; margin: 5px; background: var(--neutralDark); padding: 5px;border: 1px solid #c2a87b38;}
+.qeel2024_stats_stats { display: flex; justify-content: space-around; margin: 5px 5px 10px 5px;font-size:11px}
+.qeel2024_stats { width: 180px;}
+ro#total_users_qeel::after { content: "↯"; margin-left: 10px;}
+.qeel2024_stats_grpes div { width: 160px; margin: 4px auto; text-align: center; color: white; border-radius: 3px;transition: .5s;}
+.qeel2024_stats_grpes div:hover { transition: .5s; background-color: var(--accentClr)!important; color: #fff;}
+.gsorcieres{color:black!important}
+.qeel2024_stats_grpes .gsorcieres:hover  {color: #fff!important;}
+#page-footer {background-color: var(--neutral);}
+/****** ------------------------------------------------------------------------------
+ ****** LISTE DES SUJETS ------------------------------------------------------------- ******/
+
+/*** ------------------------------- ***/
+/*** ENTETE ET FOOTER DE LA LISTE DES SUJETS ***/
+
+/* Chaîne de navigation et pagination
+ * (réutilisé dans l'affichage d'un sujet (viewtopic_body)) */
+.navigation_links {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+/* chaîne de lien de navigation : catégorie > forum > sous-fo */
+.navigation_chain {
+  font-size: 0;
+  /*retire les :: de séparation */
+}
+
+.navigation_chain a {
+  font-size: initial;
+  /*rétablit la taille des liens*/
+  margin-right: 8px;
+}
+
+.navigation_chain a:before {
+  content: "›";
+  /*symbole ou texte modifiable*/
+  font-size: var(--nomal-size);
+  margin-right: 3px;
+}
+
+/* BOUTONS DE MESSAGE : Répondre, Nouveau,... ---* 
+ * (réutilisé dans l'affichage d'un sujet (viewtopic_body) et les MP (privmsgs_body) */
+.buttons {
+  background: var(--neutralDark);
+  padding: 1px 8px;
+  margin-right: 5px;
+  opacity: 1;
+}
+
+.buttons:hover {
+  opacity: 0.7;
+}
+
+/* BOUTONS : modérer les sujets de ce forum */
+#moderation_forum_tools,
+#moderation_forum_tools strong {
+  font-size: 0px;
+}
+
+#moderation_forum_tools a {
+  background: var(--neutralDark);
+  padding: 2px 8px;
+  font-size: var(--normal-size);
+}
+
+/*** ------------------------------- ***/
+/*** LISTE DES SUJETS -------------- ***/
+
+/* Bloc de description du forum */
+.forum-page_desc {
+  margin: 0 0 20px;
+  background: var(--neutral);
+  padding: 10px;
+}
+
+/* Conteneur sujet dans la liste */
+.topicslist_row {
+  background: var(--neutral);
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.topicslist_row:last-child {
+  margin-bottom: 0;
+}
+
+/* Image du sujet */
+.topicslist-img {
+  width: 50px;
+  height: 50px;
+  background: var(--neutralDark);
+}
+
+.topicslist_infos {
+  flex-grow: 100;
+}
+
+/*titre du sujet*/
+.topictitle {
+  font-size: var(--medium-size);
+  /* permet de raccourir les titres trop long ainsi : "Titre du suj..." */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  max-width: 430px;
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+
+/* icône de type de message ( exemple : -18 ans, sujet résolu, ... ) */
+.topic_msgicon {
+  margin-right: 5px;
+}
+
+.topic_msgicon:empty {
+  display: none;
+}
+
+.topiclist-infos img {
+  margin-right: 3px;
+}
+
+.topicslist-stats {
+  text-align: right;
+}
+
+.topicslist-avatar-lastpost img {
+  object-fit: cover;
+  object-position: center;
+  width: 50px;
+  height: 50px;
+  background: var(--neutralDark);
+}
+
+.topicslist-lastpost {
+  width: 180px;
+}
+
+.topicslist-description {border-top: 1px solid var(--neutralDark);padding-top: 5px;width: 100%;font-style: italic;font-size: 11px;}
+a.topictitle {font-family: cinzel;font-size: 18px;font-weight: 500;color: var(--textColor);text-decoration: none;margin: -1px 0;display: inline-block;word-break: break-word;}
+span.topic-author {font-size: 13px;}
+
+/* ligne qui séparent les annonces et les notes des autres sujets (à activer dans "message > configuration") */
+.topic_separator {
+  height: 5px;
+  background: var(--neutral);
+  margin-bottom: 10px;
+}
+
+/* Bouton "trier les sujets" */
+#sort-topics {
+  position: relative;
+  display: inline;
+  background: var(--neutralDark);
+  margin: 10px 0;
+}
+
+.sort-form {
+  width: max-content;
+  background: var(--neutral);
+  border: 1px solid var(--neutralDarker);
+  padding: 10px;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  display: none;
+}
+
+.expanded~.sort-form {
+  display: block;
+}
+
+
+/***FICHE STAFF***/
+.ny2300-page {width: 650px;margin: 30px auto;background: #07090D;color: #D5D7DB;border: 1px solid #2A2119;font-family: Georgia, "Times New Roman", serif;box-shadow: 0 0 30px rgba(0,0,0,0.8);}
+.ny2300-header {height: 200px;background:linear-gradient(90deg,rgb(7 9 13 / .05),rgb(7 9 13 / .15)),url(https://i.servimg.com/u/f81/17/65/68/70/fond_m11.png) center/cover;
+  padding: 45px 55px;box-sizing: border-box;border-bottom: 1px solid var(--accentClr);}
+.ny2300-title span {display: block;font-family: 'Cinzel';font-size: 58px;letter-spacing: 5px;color: #F2EEE8;text-transform: uppercase;line-height: 0.9;text-align:center;}
+.ny2300-title strong {display: block;margin-top: 8px;font-size: 46px;letter-spacing: 18px;color: #C9A06A;font-weight: normal;}
+.ny2300-header p {margin-top: 20px;font-size: 11px;text-transform: uppercase;letter-spacing: 2px;color: #D5D7DB;text-align: center;}
+.ny2300-content {text-align:justify; padding: 15px;background: linear-gradient(180deg, rgb(38 49 64 / .18), transparent 300px), var(--neutralDarker);color: var(--contrastLight);}
+.ny2300-content h2 {margin: 35px 0 15px;color: var(--accentClr);font-size: 24px;text-transform: uppercase;letter-spacing: 4px;border-bottom: 1px solid var(--accentClr);padding-bottom: 8px;font-family: 'Cinzel';}
+.ny2300-content p {font-size: 12px;text-align: justify;}
+.ny2300-grid {display: grid;grid-template-columns: repeat(3, 1fr);gap: 18px;margin: 35px 0;}
+.ny2300-grid div {background: rgba(255,255,255,0.03);border: 1px solid rgba(184,138,79,0.35);padding: 20px;}
+.ny2300-grid h3 {margin: 0 0 10px;color: #C9A06A;text-transform: uppercase;letter-spacing: 2px;  font-size: 15px;}
+.ny2300-grid p {font-size: 12px;line-height: 1.6;text-align: left;}
+.linkpost {width: 100px;background: var(--contrast);display: block;text-align: center;margin: auto;padding: 5px;color: var(--accentClrDark) !important;transition: .3s ease;}
+.linkpost:hover {transform: scale(1.05);color: var(--contrast) !important;background: var(--contrastLight);}
+.ny2300-page ul {list-style-type: none;padding: 0 0 0 20px;margin: 0;}
+.ny2300-page li {list-style: inside;}
+.s_tips {background: #8fb885;padding: 10px;color: #224e25;width: 490px;position: relative;padding-left: 70px;margin: auto;text-align: justify}
+.s_tips:before {content: "";position: absolute;left: 10px;top: 50%;transform: translateY(-50%);width: 50px;height: 50px;background: url(https://i.servimg.com/u/f81/17/65/68/70/ampoul10.png) center / contain no-repeat;}
+.s_warn {background: #c89090;padding: 10px;color: #4e2222;width: 490px;position: relative;padding-left: 70px;margin: auto;text-align: justify}
+.s_warn:before {content: "";position: absolute;left: 10px;top: 50%;transform: translateY(-50%);width: 50px;height: 50px;background: url(https://i.servimg.com/u/f81/17/65/68/70/attent10.png) center / contain no-repeat;}
+.ny2300-page b {color: var(--accentClrLight);}
+.s_info {background: #b4972c;padding: 10px;color: #42390b;width: 490px;position: relative;padding-left: 70px;margin: auto;text-align: justify;}
+.s_info:before {content: "";position: absolute;left: 10px;top: 50%;transform: translateY(-50%);width: 50px;height: 50px;background: url(https://i.servimg.com/u/f81/17/65/68/70/soutie10.png) center / contain no-repeat;}
+
+/**PRESENTATION**/
+.nyprez {padding: 10px;background: var(--neutralDark);color: var(--textColor);width: 600px;margin:auto}
+.titleprez {color: var(--contrast);text-align: center;font-family: 'Cinzel';font-size: 30px;padding: 20px;}
+.infoprez {text-align: center;background: var(--contrast);margin: 0 -10px;color: var(--neutralDark);font-variant-caps: small-caps;letter-spacing: 2px;font-weight: bold;font-size: 13px;}
+.infoprez z1{}
+.prez1 {display: flex;column-gap: 15px;}
+.avaprez {width: 210px;height: 336px;background-size: cover;}
+.idprez {line-height: 19px;width: 358px;height: 336px;overflow: auto;}
+.idprez span, .nyprez span {font-weight: bold;color: var(--contrast);}
+.nyprez h1 {background: var(--contrast);padding: 10px;font-family: 'Cinzel';margin: 30px 0 0 0;border: none !important;color: var(--accentClrDark) !important;}
+
