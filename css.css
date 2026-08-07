@@ -1382,3 +1382,9 @@ span.topic-author {font-size: 13px;}
     overflow: auto;
     color: #737373;
 }
+
+.nyprez h2 {
+    color: var(--accentClr);
+    font-size: 20px;
+    font-variant-caps: small-caps;
+}
